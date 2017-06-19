@@ -1,0 +1,42 @@
+<html>
+<head>
+	<title>rowTest2</title>
+	<style type='text/css'>
+	</style>
+	<script type="text/javascript" src="jquery-1.3.2.js"></script>
+	<script type="text/javascript" src="jquery-dynaRow-plugin.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			
+			var max = 3;
+			
+			$("#btn").live("click", function() {
+				$("#tab").addRow();
+				return false;
+			});
+			
+			$("#del").live("click", function() {
+				$(this).parent().deleteRow({minCount:0});
+				return false;
+			});
+			
+		});
+	</script>
+</head>
+<body>
+	<table id="tab">
+		<thead>
+			<tr>
+				<td width="180px">Text</td><td width="180px">Date</td><td><a id="btn" href="#">ADD</a></td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr style="display:none">
+				<td><input name="list.model[0].text1" type="text" /></td>
+				<td><input name="list.model/0|_date1" type="text" value="____/__/__" /></td>
+				<td><a id="del" href="#">DELETE</a></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

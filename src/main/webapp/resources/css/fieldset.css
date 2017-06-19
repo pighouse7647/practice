@@ -1,0 +1,29 @@
+body {
+  padding-top: 50px;
+}
+legend a {
+  color: inherit;
+}
+legend.legendStyle {
+	padding-left: 5px;
+	padding-right: 5px;
+}
+fieldset.fsStyle {
+	font-family: Verdana, Arial, sans-serif;
+	font-size: small;
+	font-weight: normal;
+	border: 1px solid #999999;
+	padding: 4px;
+	margin: 5px;
+}
+legend.legendStyle {
+	font-size: 90%;
+	color: #888888;
+	background-color: transparent;
+	font-weight: bold;
+}
+legend {
+	width: auto;
+	border-bottom: 0px;
+}
+background-position: 5px 9px !important;

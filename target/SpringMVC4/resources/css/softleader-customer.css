@@ -1,0 +1,66 @@
+@CHARSET "UTF-8";
+body {
+	font-family:'Noto Sans TC', sans-serif;
+}
+input, select {
+	font-family: Verdana, sans-serif;
+}
+.container {
+	width: 1320px;
+}
+.title {
+	display: block;
+	padding: 0;
+	margin-bottom: 20px;
+	font-size: 18px;
+	line-height: 30px;
+	color: #333333;
+	border: 0;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.innerTitle {
+	font-size: 16px;
+}
+
+.warn-wording {
+	color: #FF0000;
+}
+
+.msg-wording {
+	color: #0000FF;
+}
+
+.big-checkbox {
+	width: 20px;
+	height: 20px;
+}
+
+.big-radio {
+	width: 18px;
+	height: 18px;
+}
+
+.even-row-color {
+	background-color: #BBE;
+}
+
+
+.tab-panel {
+
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-radius: 0px 0px 5px 5px;
+    padding: 10px;
+    background-color:#FFFFF2;
+}
+
+.nav-tabs {
+    margin-bottom: 0;    
+}
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus{
+   background-color:#FEF9E7;
+} 

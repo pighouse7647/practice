@@ -1,0 +1,47 @@
+<html>
+<head>
+	<title>rowTest3</title>
+	<style type='text/css'>
+	</style>
+	<script type="text/javascript" src="jquery-1.3.2.js"></script>
+	<script type="text/javascript" src="jquery-dynaRow-plugin.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			
+			var trCount = $("#tab").children().children().length;
+			if(trCount == 1) {
+				$("#tab").addRow();
+			}
+			
+			var max = 2;
+			
+			$("#btn").live("click", function() {
+				//$("#tab").addRow();
+				//$("#tab").addRow({maxCount:max});
+				//$("#tab").addRow({tarObj:$(this).parent(), maxCount:max});
+				$("#tab").addRow({tarObj:$(this).parent()});
+				return false;
+			});
+			
+			$("#del").live("click", function() {
+				$(this).parent().deleteRow();
+				//$(this).parent().deleteRow({maxCount:max});
+				return false;
+			});
+			
+		});
+	</script>
+</head>
+<body>
+	<table id="tab">
+		<tbody>
+			<tr style="display:none">
+				<td><input name="list.model[0].text1" type="text" /></td>
+				<td><input name="list.model/0|_date1" type="text" value="____/__/__" /></td>
+				<td><a id="btn" href="#">ADD</a></td>
+				<td><a id="del" href="#">DELETE</a></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
