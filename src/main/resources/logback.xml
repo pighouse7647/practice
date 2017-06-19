@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+	<property name="LOG_HOME" value="/logs" />
+	<property name="CHARSET" value="UTF-8" />
+	<property name="PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n" />
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{20} (%file:%line\) - %msg%n</pattern>
+		</encoder>
+	</appender>
+	
+	<appender name="ROLLINGFILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!--日誌文件輸出的文件名 -->
+			<fileNamePattern>${LOG_HOME}/thomas-chen-practice-springMVC-%d{yyyy-MM-dd}.log</fileNamePattern>
+			<!--日誌文件保留天數 -->
+			<maxHistory>1</maxHistory>
+		</rollingPolicy>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>${PATTERN}</pattern>
+		</encoder>
+		<!--日誌文件最大的大小 -->
+		<triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<maxFileSize>10MB</maxFileSize>
+		</triggeringPolicy>
+	</appender>
+
+	<root level="info">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="ROLLINGFILE" />
+	</root>
+	
+	<logger name="web" level="info" />
+	<logger name="service" level="info" />
+	<!--<logger name="tw.com.softleader.gardenia.life" level="info" />-->
+
+	<!-- 如果要看controller input的log, 把以下都開到trace -->
+ 	<!--<logger name="org.springframework.web.multipart.support.MultipartFilter" level="info" />-->
+ 	<!--<logger name="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping" level="info" />-->
+ 	<!--<logger name="org.springframework.web.method.HandlerMethod" level="info" />-->
+ 	<!--<logger name="org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor" level="info" />-->
+ 	<!--<logger name="org.springframework.web.context.support.AnnotationConfigWebApplicationContext" level="info" />-->
+	
+	<!-- spring處理exception的resolver, 建議先開到debug -->
+ 	<!--<logger name="org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver" level="info" />-->
+	
+	<!-- 查看 Transaction -->
+ 	<!--<logger name="org.springframework.orm.jpa.JpaTransactionManager" level="debug" />-->
+	
+	<!-- 開到 trace 可以查看 Hibernate SQL binding value -->
+	<!--<logger name="org.hibernate.type" level="info" />-->
+	
+</configuration>

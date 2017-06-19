@@ -1,0 +1,158 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion><groupId>SpringMVC4</groupId>
+  <artifactId>SpringMVC4</artifactId>
+  <packaging>war</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>SpringMVC4 Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  <properties>
+    <jdk.version>1.8</jdk.version>
+    <spring.version>4.2.5.RELEASE</spring.version>
+	<!--<jackson-json.version>2.3.1</jackson-json.version>-->
+	<jackson-json.version>2.6.5</jackson-json.version>
+	  <lombok.version>1.16.16</lombok.version>
+	  <logback-classic.version>1.2.3</logback-classic.version>
+	  <slf4j-api.version>1.7.5</slf4j-api.version>
+	  <poi-ooxml.version>3.16</poi-ooxml.version>
+	  <google-collections.version>1.0</google-collections.version>
+	  <itextpdf.version>5.5.11</itextpdf.version>
+  </properties>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    <!--<dependency>-->
+    <!--<groupId>org.springframework</groupId>-->
+    <!--<artifactId>spring-context</artifactId>-->
+    <!--<version>${spring.version}</version>-->
+    <!--</dependency>-->
+    <!--Spring Dependencies-->
+	  <!--springMVC 需要的套件 1.core 2.web 3.webmvc-->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-core</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-web</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+	  <!--jstl與servlet需要的套件 1.servlet, 2.jstl-->
+	  <dependency>
+		  <groupId>javax.servlet</groupId>
+		  <artifactId>javax.servlet-api</artifactId>
+		  <version>3.1.0</version>
+		  <scope>provided</scope>
+	  </dependency>
+	  <dependency>
+		  <groupId>javax.servlet</groupId>
+		  <artifactId>jstl</artifactId>
+		  <version>1.2</version>
+	  </dependency>
+	  <!--logback 需要的套件 (1.core, 2.classic)-->
+	  <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-core -->
+	  <dependency>
+		  <groupId>ch.qos.logback</groupId>
+		  <artifactId>logback-core</artifactId>
+		  <version>${logback-classic.version}</version>
+	  </dependency>
+	  <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
+	  <dependency>
+		  <groupId>ch.qos.logback</groupId>
+		  <artifactId>logback-classic</artifactId>
+		  <version>${logback-classic.version}</version>
+	  </dependency>
+	  <!--java 裡面使用的log.info() 這裡不能使用log4j要使用slf4j(Simple Logging Facade for Java) -->
+	  <dependency>
+		  <groupId>org.slf4j</groupId>
+		  <artifactId>slf4j-api</artifactId>
+		  <version>${slf4j-api.version}</version>
+	  </dependency>
+	  <!--lombok 提供一堆好用的builder, Config的 annotation-->
+	  <dependency>
+		  <groupId>org.projectlombok</groupId>
+		  <artifactId>lombok</artifactId>
+		  <version>${lombok.version}</version>
+		  <scope>provided</scope>
+	  </dependency>
+	  <!--Excel-->
+	  <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+	  <dependency>
+		  <groupId>org.apache.poi</groupId>
+		  <artifactId>poi-ooxml</artifactId>
+		  <version>${poi-ooxml.version}</version>
+	  </dependency>
+	  <!--pdf-->
+	  <!-- https://mvnrepository.com/artifact/com.itextpdf/itextpdf -->
+	  <dependency>
+		  <groupId>com.itextpdf</groupId>
+		  <artifactId>itextpdf</artifactId>
+		  <version>${itextpdf.version}</version>
+	  </dependency>
+	  <!--jackson -->
+	  <dependency>
+		  <groupId>com.fasterxml.jackson.core</groupId>
+		  <artifactId>jackson-databind</artifactId>
+		  <version>${jackson-json.version}</version>
+	  </dependency>
+	  <dependency>
+		  <groupId>com.fasterxml.jackson.datatype</groupId>
+		  <artifactId>jackson-datatype-jsr310</artifactId>
+		  <version>${jackson-json.version}</version>
+	  </dependency>
+	  <dependency>
+		  <groupId>com.fasterxml.jackson.datatype</groupId>
+		  <artifactId>jackson-datatype-jdk8</artifactId>
+		  <version>${jackson-json.version}</version>
+	  </dependency>
+	  <!-- https://mvnrepository.com/artifact/com.google.collections/google-collections -->
+	  <!--google collections-->
+	  <dependency>
+		  <groupId>com.google.collections</groupId>
+		  <artifactId>google-collections</artifactId>
+		  <version>${google-collections.version}</version>
+	  </dependency>
+  </dependencies>
+  <build>
+    <finalName>SpringMVC4</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.3</version>
+        <configuration>
+          <source>${jdk.version}</source>
+          <target>${jdk.version}</target>
+        </configuration>
+      </plugin>
+	    <plugin>
+		    <artifactId>maven-resources-plugin</artifactId>
+		    <version>2.5</version>
+		    <configuration>
+			    <encoding>UTF-8</encoding>
+			    <nonFilteredFileExtensions>
+				    <nonFilteredFileExtension>xls</nonFilteredFileExtension>
+			    </nonFilteredFileExtensions>
+		    </configuration>
+	    </plugin>
+    </plugins>
+	  <resources>
+		  <resource>
+			  <directory>${project.build.outputDirectory}</directory>
+			  <filtering>false</filtering>
+			  <includes>
+				  <include>**/*.xls</include>
+			  </includes>
+		  </resource>
+	  </resources>
+  </build>
+</project>
